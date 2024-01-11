@@ -10,9 +10,17 @@ public class StageSelect : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    public void OnClickStageLoad()
     {
-        switch()
-        
+        switch(StageNumber)
+        {
+            case 1:
+                SceneManager.LoadScene("ScoreAttackScene");
+                break;
+            case 2:
+                SceneManager.LoadScene("RankBattleScene");
+                break;
+        }
+        UnityEngine.Debug.Log("‘I‘ğ‚µ‚½ƒV[ƒ“‚ÉˆÚ“®‚µ‚Ü‚·");
     }
 }
