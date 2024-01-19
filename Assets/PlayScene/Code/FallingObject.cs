@@ -5,17 +5,19 @@ public class FallingObject : MonoBehaviour
     public float firstSpeed = 0f; // 初速度
     public float nextSpeed = 5f; // 加速度
     public float maxCubeSpeed = 10f; // 落下時の最高速度
-    public float minYPosition = -70f; // 画面外のY座標→-70ぐらいに達したら消えるように設定
+    static float fixedYPosition = 450f;
 
-    private float currentSpeed; // 現在の速度
-
+    private float currentSpeed; // 現在の速度 
+    
+    static float minYPosition = -70f; // 画面外のY座標→-70ぐらいに達したら消えるように設定
+    
     void Start()
     {
         currentSpeed = firstSpeed;
 
         // 初期位置をランダムに設定
-        float randomX = Random.Range(0f, 30f); // X座標の範囲を調整
-        transform.position = new Vector3(randomX, 10f, 0);
+        float randomX = Random.Range(150f, 700f); // X座標の範囲を調整 //(150f, 700f)
+        transform.position = new Vector3(randomX, fixedYPosition, 0);
     }
 
     void Update()

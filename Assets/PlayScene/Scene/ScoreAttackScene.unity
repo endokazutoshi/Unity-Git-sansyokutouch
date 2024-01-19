@@ -215,7 +215,6 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
-  minYPosition: -70
 --- !u!1 &149352280
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +308,6 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
-  minYPosition: -70
 --- !u!114 &149352285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +532,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -188.1, y: 258}
-  m_SizeDelta: {x: 101.7951, y: 110.7702}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956794524
 MonoBehaviour:
@@ -589,7 +587,6 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
-  minYPosition: -70
 --- !u!1 &1300278097
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +747,6 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
-  minYPosition: -70
 --- !u!1 &2050739653
 GameObject:
   m_ObjectHideFlags: 0
