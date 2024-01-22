@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class FallingObject : MonoBehaviour
 {
@@ -26,7 +28,7 @@ public class FallingObject : MonoBehaviour
         Fall();
     }
 
-    void OnMouseDown()
+   public void OnMouseDown()
     {
         Destroy(gameObject);
     }
