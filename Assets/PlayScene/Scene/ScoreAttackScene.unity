@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingObjectPrefab: {fileID: 149352280}
-  canvasRect: {fileID: 0}
+  canvasRect: {fileID: 519302648}
   spawnInterval: 2
 --- !u!114 &519302651
 MonoBehaviour:
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingObjectPrefab: {fileID: 956794522}
-  canvasRect: {fileID: 0}
+  canvasRect: {fileID: 519302648}
   spawnInterval: 2
 --- !u!114 &519302652
 MonoBehaviour:
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingObjectPrefab: {fileID: 1929931813}
-  canvasRect: {fileID: 0}
+  canvasRect: {fileID: 519302648}
   spawnInterval: 2
 --- !u!114 &519302653
 MonoBehaviour:
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingObjectPrefab: {fileID: 111673559}
-  canvasRect: {fileID: 0}
+  canvasRect: {fileID: 519302648}
   spawnInterval: 2
 --- !u!1 &956794522
 GameObject:
