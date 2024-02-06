@@ -3,21 +3,31 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score = 0; // スコア変数
+    public static ScoreManager Instance { get; private set; }
 
-    private Text scoreText; // UI Text オブジェクト
+    public int score = 0; // 静的変数としてスコアを保持
+    public Text scoreText; // UI テキストオブジェクト
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
-        // UI Text オブジェクトを取得
-        scoreText = GetComponent<Text>();
-        // スコアの初期値を表示
-        UpdateScore();
+        UpdateScore(); // 初期化時にスコアを更新
     }
 
-    // スコアを更新して表示
     public void UpdateScore()
     {
+        // UI テキストにスコアを表示
         scoreText.text = "Score: " + score;
     }
 }

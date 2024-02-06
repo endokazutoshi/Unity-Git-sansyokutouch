@@ -23,12 +23,11 @@ public class UIManager : MonoBehaviour
 
     void SpawnFallingObject()
     {
-        // CanvasのRectTransformからランダムな位置を取得
+        // ブロックを生成する位置をCanvas内のランダムな位置に変更
         float spawnX = Random.Range(-canvasRect.rect.width / 2f, canvasRect.rect.width / 2f);
-        float spawnY = canvasRect.rect.height / 2f; // Canvasの上端に固定
-        float spawnZ = 0f;
+        float spawnY = canvasRect.rect.height / 2f;
 
-        Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
         // Prefabからブロックを生成し、Canvasの子オブジェクトに設定
         GameObject fallingObject = Instantiate(fallingObjectPrefab, spawnPosition, Quaternion.identity);

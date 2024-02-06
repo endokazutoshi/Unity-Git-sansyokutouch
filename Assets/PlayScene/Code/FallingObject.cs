@@ -6,8 +6,8 @@ public class FallingObject : MonoBehaviour
     public float firstSpeed = 10.0f; // 初速度
     public float nextSpeed = 5f; // 加速度
     public float maxCubeSpeed = 10f; // 落下時の最高速度
-    public float spawnInterval = 1.0f; // ブロックの生成間隔
-    public float totalTimeLimit = 30.0f; // 制限時間（秒）
+    public float spawnInterval = 60.0f; // ブロックの生成間隔 (60秒ごと)
+    public float totalTimeLimit = 300.0f; // 制限時間（秒） 300秒 = 5分
 
     private float currentSpeed; // 現在の速度
     private Color blockColor; // ブロックの色
@@ -23,6 +23,8 @@ public class FallingObject : MonoBehaviour
 
     // 追加: スコアを表示するテキスト
     public Text scoreText;
+
+    private bool isFalling = false; // 追加: 落下中かどうかのフラグ
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class FallingObject : MonoBehaviour
     void UpdateScore()
     {
         // 追加: スコアテキストを更新
-        scoreText.text = "Score: " + ScoreManager.score;
+        scoreText.text = "Score: " + ScoreManager.Instance.score;
     }
 
     void SpawnBlock()
@@ -50,6 +52,7 @@ public class FallingObject : MonoBehaviour
         {
             // 初期位置と色をランダムに設定（他の同じ色のブロックと重ならないように調整）
             SetRandomPositionAndColor();
+            isFalling = true; // ブロックが落ち始める
         }
         else
         {
@@ -106,36 +109,43 @@ public class FallingObject : MonoBehaviour
         {
             Debug.Log("Spawn new block at " + Time.time); // デバッグログを追加
             // スポーンさせる
-            SetRandomPositionAndColor();
+            if (!isFalling) // 落下中でない場合にのみ新しいブロックを生成
+            {
+                SetRandomPositionAndColor();
+            }
         }
     }
 
     public void OnMouseDown()
     {
         // ブロックがクリックされたときの処理
-        if (blockColor == targetColor)
+        if (isFalling && blockColor == targetColor)
         {
             IncrementScore();
         }
 
         // ブロックを削除
         Destroy(gameObject);
+        isFalling = false; // ブロックがクリックされたので生成を再開
     }
 
     void IncrementScore()
     {
-        ScoreManager.score += scoreValue;
-        FindObjectOfType<ScoreManager>().UpdateScore();
+        ScoreManager.Instance.score += scoreValue;
+        ScoreManager.Instance.UpdateScore(); // 追加: スコアを更新
         UpdateScore(); // 追加: スコアを更新
     }
 
     void Fall()
     {
-        // 速度を初期化
-        if (elapsedTime < totalTimeLimit)
+        // 落下中でない場合は処理しない
+        if (!isFalling)
         {
-            currentSpeed = firstSpeed;
+            return;
         }
+
+        // 速度を初期化
+        currentSpeed = firstSpeed;
 
         // 加速させる
         currentSpeed += nextSpeed * Time.deltaTime;
@@ -149,5 +159,4 @@ public class FallingObject : MonoBehaviour
         // UIを移動させる
         transform.Translate(fallVector);
     }
-
 }
