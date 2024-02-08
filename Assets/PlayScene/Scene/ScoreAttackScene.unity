@@ -208,7 +208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111673559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -216,6 +216,11 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
+  spawnInterval: 60
+  totalTimeLimit: 300
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreValue: 10
+  scoreText: {fileID: 0}
 --- !u!1 &149352280
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149352280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -309,6 +314,11 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
+  spawnInterval: 60
+  totalTimeLimit: 300
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreValue: 10
+  scoreText: {fileID: 0}
 --- !u!1 &519302644
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +336,7 @@ GameObject:
   - component: {fileID: 519302653}
   - component: {fileID: 519302652}
   - component: {fileID: 519302651}
+  - component: {fileID: 519302654}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -478,7 +489,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -486,6 +497,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 149352280}
   canvasRect: {fileID: 519302648}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +506,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -501,6 +514,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 956794522}
   canvasRect: {fileID: 519302648}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,7 +523,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -516,7 +531,26 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 1929931813}
   canvasRect: {fileID: 519302648}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingObjectPrefab: {fileID: 111673559}
+  canvasRect: {fileID: 519302648}
+  spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
+--- !u!114 &519302654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -525,12 +559,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 519302644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
+  m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingObjectPrefab: {fileID: 111673559}
-  canvasRect: {fileID: 519302648}
-  spawnInterval: 2
+  blockPrefab: {fileID: 0}
+  scoreText: {fileID: 0}
+  gameDuration: 60
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +650,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956794522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -624,6 +658,11 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
+  spawnInterval: 60
+  totalTimeLimit: 300
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreValue: 10
+  scoreText: {fileID: 0}
 --- !u!1 &1110765751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1348,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929931813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -1317,6 +1356,11 @@ MonoBehaviour:
   firstSpeed: 10
   nextSpeed: 20
   maxCubeSpeed: 100
+  spawnInterval: 60
+  totalTimeLimit: 300
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  scoreValue: 10
+  scoreText: {fileID: 0}
 --- !u!1 &2050739653
 GameObject:
   m_ObjectHideFlags: 0

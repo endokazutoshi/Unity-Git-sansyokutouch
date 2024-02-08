@@ -211,7 +211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111673559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111673559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -349,11 +349,11 @@ GameObject:
   - component: {fileID: 149352281}
   - component: {fileID: 149352283}
   - component: {fileID: 149352282}
-  - component: {fileID: 149352284}
   - component: {fileID: 149352286}
   - component: {fileID: 149352287}
   - component: {fileID: 149352288}
   - component: {fileID: 149352289}
+  - component: {fileID: 149352290}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -379,7 +379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104, y: 261.50006}
+  m_AnchoredPosition: {x: -28, y: 111}
   m_SizeDelta: {x: 100, y: 93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
@@ -420,26 +420,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149352280}
   m_CullTransparentMesh: 1
---- !u!114 &149352284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149352280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstSpeed: 10
-  nextSpeed: 100
-  maxCubeSpeed: 200
-  spawnInterval: 5
-  totalTimeLimit: 5
-  targetColor: {r: 0, g: 0, b: 0, a: 0}
-  scoreValue: 7
-  scoreText: {fileID: 307687157}
 --- !u!114 &149352286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,14 +591,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 149352280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
+  m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingObjectPrefab: {fileID: 0}
-  canvasRect: {fileID: 149352281}
-  spawnInterval: 2
-  firstSpeed: 5
-  maxCubeSpeed: 15
+  fallSpeed: 5
+--- !u!50 &149352290
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +668,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307687154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbdee89367f55744db4f24e5300ee413, type: 3}
   m_Name: 
@@ -731,6 +734,7 @@ GameObject:
   - component: {fileID: 519302653}
   - component: {fileID: 519302652}
   - component: {fileID: 519302651}
+  - component: {fileID: 519302654}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -884,7 +888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -901,7 +905,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -918,7 +922,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -935,7 +939,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c60608e90208c46be5930e40645c94, type: 3}
   m_Name: 
@@ -945,6 +949,21 @@ MonoBehaviour:
   spawnInterval: 10
   firstSpeed: 5
   maxCubeSpeed: 15
+--- !u!114 &519302654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockPrefab: {fileID: 1670817483}
+  scoreText: {fileID: 307687157}
+  gameDuration: 60
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1051,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956794522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
@@ -1155,7 +1174,7 @@ GameObject:
   - component: {fileID: 1110765754}
   - component: {fileID: 1110765753}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: NonameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,7 +1307,7 @@ GameObject:
   - component: {fileID: 1170136458}
   - component: {fileID: 1170136457}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1489,7 +1508,7 @@ GameObject:
   - component: {fileID: 1336985687}
   - component: {fileID: 1336985686}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: YellowButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1622,7 +1641,7 @@ GameObject:
   - component: {fileID: 1670817487}
   - component: {fileID: 1670817486}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1692,7 +1711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 149352284}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FallingObject, Assembly-CSharp
         m_MethodName: OnMouseDown
         m_Mode: 1
@@ -1829,7 +1848,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929931813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
   m_Name: 
