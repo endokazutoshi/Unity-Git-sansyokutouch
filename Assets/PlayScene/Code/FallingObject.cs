@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class FallingObject : MonoBehaviour
 {
-    public float firstSpeed = 10.0f; // 初速度
-    public float nextSpeed = 5f; // 加速度
-    public float maxCubeSpeed = 10f; // 落下時の最高速度
+    public float firstSpeed = 0; // 初速度
+    public float nextSpeed = 0; // 加速度
+    public float maxCubeSpeed = 0; // 落下時の最高速度
     public float spawnInterval = 60.0f; // ブロックの生成間隔 (60秒ごと)
     public float totalTimeLimit = 300.0f; // 制限時間（秒） 300秒 = 5分
 
@@ -38,6 +38,9 @@ public class FallingObject : MonoBehaviour
 
         // 追加: スコアテキストの初期化
         UpdateScore();
+
+        // 一番最初のブロック生成時に isFalling を true にする
+        isFalling = true;
     }
 
     void UpdateScore()
@@ -52,7 +55,6 @@ public class FallingObject : MonoBehaviour
         {
             // 初期位置と色をランダムに設定（他の同じ色のブロックと重ならないように調整）
             SetRandomPositionAndColor();
-            isFalling = true; // ブロックが落ち始める
         }
         else
         {
@@ -112,6 +114,7 @@ public class FallingObject : MonoBehaviour
             if (!isFalling) // 落下中でない場合にのみ新しいブロックを生成
             {
                 SetRandomPositionAndColor();
+                isFalling = true; // ブロックが再び落ち始める
             }
         }
     }

@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSpeed: 10
-  nextSpeed: 20
-  maxCubeSpeed: 100
+  nextSpeed: 100
+  maxCubeSpeed: 200
   spawnInterval: 5
   totalTimeLimit: 5
   targetColor: {r: 0, g: 0, b: 0, a: 0}
@@ -336,6 +336,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 0}
   canvasRect: {fileID: 1170136456}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!1 &149352280
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSpeed: 10
-  nextSpeed: 20
-  maxCubeSpeed: 100
+  nextSpeed: 100
+  maxCubeSpeed: 200
   spawnInterval: 5
   totalTimeLimit: 5
   targetColor: {r: 0, g: 0, b: 0, a: 0}
@@ -615,6 +617,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 0}
   canvasRect: {fileID: 149352281}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +892,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 149352280}
   canvasRect: {fileID: 519302648}
   spawnInterval: 10
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +909,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 956794522}
   canvasRect: {fileID: 519302648}
   spawnInterval: 2
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +926,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 1929931813}
   canvasRect: {fileID: 519302648}
   spawnInterval: 10
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!114 &519302653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +943,8 @@ MonoBehaviour:
   fallingObjectPrefab: {fileID: 111673559}
   canvasRect: {fileID: 519302648}
   spawnInterval: 10
+  firstSpeed: 5
+  maxCubeSpeed: 15
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,8 +1038,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSpeed: 10
-  nextSpeed: 20
-  maxCubeSpeed: 100
+  nextSpeed: 100
+  maxCubeSpeed: 200
   spawnInterval: 5
   totalTimeLimit: 5
   targetColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1823,8 +1835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSpeed: 10
-  nextSpeed: 20
-  maxCubeSpeed: 100
+  nextSpeed: 100
+  maxCubeSpeed: 200
   spawnInterval: 5
   totalTimeLimit: 5
   targetColor: {r: 0, g: 0, b: 0, a: 0}
