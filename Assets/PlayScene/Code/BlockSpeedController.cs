@@ -6,22 +6,40 @@ public class BlockSpeedController : MonoBehaviour
 {
     public float fallSpeed = 5f; // ブロックが落ちてくる速度
 
-    void Start()
+    void Awake()
     {
-        // Rigidbody2D コンポーネントを取得
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        // SpriteRenderer コンポーネントがアタッチされていない場合は追加する
+        if (GetComponent<SpriteRenderer>() == null)
+        {
+            gameObject.AddComponent<SpriteRenderer>();
+        }
 
-        // Rigidbody2D コンポーネントが存在するか確認
-        if (rb != null)
+        // Rigidbody2D コンポーネントがアタッチされていない場合は追加する
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
         {
-            // ブロックの速度を設定
-            rb.velocity = new Vector2(0f, -fallSpeed);
+            rb = gameObject.AddComponent<Rigidbody2D>();
         }
-        else
+        
+        if(GetComponent<BoxCollider2D>() == null)
         {
-            // Rigidbody2D コンポーネントがアタッチされていない場合はエラーメッセージを表示
-            Debug.LogError("Rigidbody2D is missing on the game object: " + gameObject.name);
+            gameObject.AddComponent<BoxCollider2D>();
         }
+        
+        // ブロックの速度を設定
+        rb.velocity = new Vector2(0f, -fallSpeed);
+    }
+
+    void OnMouseDown()
+    {
+        // ブロックがクリックされたときの処理
+        BlockGameController gameController = FindObjectOfType<BlockGameController>();
+        if (gameController != null)
+        {
+            gameController.BlockClicked();
+        }
+
+        // ブロックを削除する（または非アクティブにする）
+        Destroy(gameObject);
     }
 }
-

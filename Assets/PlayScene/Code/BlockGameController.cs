@@ -1,3 +1,5 @@
+// BlockGameController.cs
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,9 +35,19 @@ public class BlockGameController : MonoBehaviour
         // CanvasのRectTransformを取得
         RectTransform canvasRect = GetComponent<RectTransform>();
 
-        // ブロックのインスタンスを生成し、Canvasの子オブジェクトにする
+        // ブロックのインスタンスを生成
         GameObject block = Instantiate(blockPrefab, canvasRect);
 
+        // ブロックにSpriteRendererがアタッチされていない場合はアタッチする
+        if (block.GetComponent<SpriteRenderer>() == null)
+        {
+            block.AddComponent<SpriteRenderer>();
+        }
+
+        if(block.GetComponent<BoxCollider2D>() == null)
+        {
+            block.AddComponent<BoxCollider2D>();
+        }
         // ブロックのRectTransformを取得
         RectTransform blockRect = block.GetComponent<RectTransform>();
 
@@ -44,8 +56,12 @@ public class BlockGameController : MonoBehaviour
         blockRect.anchoredPosition = new Vector2(spawnX, canvasRect.sizeDelta.y / 2);
 
         // ブロックの速度を制御するスクリプトをアタッチ
-        block.AddComponent<BlockSpeedController>().fallSpeed = 5f; // ここで速度を設定
+        if (block.GetComponent<BlockSpeedController>() == null)
+        {
+            block.AddComponent<BlockSpeedController>().fallSpeed = 5f; // ここで速度を設定
+        }
     }
+
 
     public void BlockClicked()
     {

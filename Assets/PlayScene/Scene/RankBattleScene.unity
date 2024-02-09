@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 5
+  fallSpeed: 150
 --- !u!50 &149352290
 Rigidbody2D:
   serializedVersion: 4
@@ -1711,8 +1711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FallingObject, Assembly-CSharp
+      - m_Target: {fileID: 149352289}
+        m_TargetAssemblyTypeName: BlockSpeedController, Assembly-CSharp
         m_MethodName: OnMouseDown
         m_Mode: 1
         m_Arguments:
