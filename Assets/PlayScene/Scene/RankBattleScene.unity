@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 149352288}
   - component: {fileID: 149352289}
   - component: {fileID: 149352290}
+  - component: {fileID: 149352291}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -379,8 +380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: 111}
-  m_SizeDelta: {x: 100, y: 93}
+  m_AnchoredPosition: {x: 155, y: 77}
+  m_SizeDelta: {x: 100, y: 93.029}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
 MonoBehaviour:
@@ -594,7 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 150
 --- !u!50 &149352290
 Rigidbody2D:
   serializedVersion: 4
@@ -622,6 +622,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &149352291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7002157630bdb42aa4f23657093824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +747,7 @@ GameObject:
   - component: {fileID: 519302652}
   - component: {fileID: 519302651}
   - component: {fileID: 519302654}
+  - component: {fileID: 519302655}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -961,9 +974,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 1670817483}
+  blockPrefab: {fileID: 149352280}
   scoreText: {fileID: 307687157}
   gameDuration: 60
+  initialFallSpeed: 5
+--- !u!114 &519302655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7002157630bdb42aa4f23657093824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,6 +1666,7 @@ GameObject:
   - component: {fileID: 1670817488}
   - component: {fileID: 1670817487}
   - component: {fileID: 1670817486}
+  - component: {fileID: 1670817489}
   m_Layer: 5
   m_Name: RedButton
   m_TagString: Untagged
@@ -1664,8 +1691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.59000003}
-  m_AnchoredPosition: {x: 1.6323, y: -4.492737}
-  m_SizeDelta: {x: 103.2646, y: 91}
+  m_AnchoredPosition: {x: 50, y: -4.5}
+  m_SizeDelta: {x: 100, y: -108.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670817486
 MonoBehaviour:
@@ -1688,7 +1715,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
@@ -1761,6 +1788,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670817483}
   m_CullTransparentMesh: 1
+--- !u!114 &1670817489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670817483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929931813
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class BlockGameController : MonoBehaviour
 {
-    public GameObject blockPrefab;  // ブロックを指定
-    public Text scoreText;          // クリックしたらポイントがつくのでそれを表示させるやつ...
-    public float gameDuration = 60f; // 制限時間は60秒
+    public GameObject blockPrefab;
+    public Text scoreText;
+    public float gameDuration = 60f;
+    public float initialFallSpeed = 100f;
+    private float spawnInterval = 1f;  // 生成頻度
+    private float timeSinceLastSpawn = 0f;  // 前回生成からの経過時間
 
     private float timer;
     private int score;
@@ -17,17 +20,28 @@ public class BlockGameController : MonoBehaviour
         timer = gameDuration;
         score = 0;
         UpdateScoreText();
-        InvokeRepeating("SpawnBlock", 0f, 1f); // 1秒ごとにSpawnBlockメソッドを呼び出す
+
+        // 最初の Cube を生成
+        Invoke("SpawnFirstBlock", 0f);
+
+        // 5 秒後に新しい Cube を生成して流す
+        InvokeRepeating("SpawnBlock", 5f, spawnInterval);
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
+        timeSinceLastSpawn += Time.deltaTime;
 
         if (timer <= 0f)
         {
             GameOver();
         }
+    }
+
+    void SpawnFirstBlock()
+    {
+        SpawnBlock();
     }
 
     void SpawnBlock()
@@ -44,10 +58,6 @@ public class BlockGameController : MonoBehaviour
             block.AddComponent<SpriteRenderer>();
         }
 
-        if(block.GetComponent<BoxCollider2D>() == null)
-        {
-            block.AddComponent<BoxCollider2D>();
-        }
         // ブロックのRectTransformを取得
         RectTransform blockRect = block.GetComponent<RectTransform>();
 
@@ -56,17 +66,23 @@ public class BlockGameController : MonoBehaviour
         blockRect.anchoredPosition = new Vector2(spawnX, canvasRect.sizeDelta.y / 2);
 
         // ブロックの速度を制御するスクリプトをアタッチ
-        if (block.GetComponent<BlockSpeedController>() == null)
+        BlockSpeedController speedController = block.GetComponent<BlockSpeedController>();
+        if (speedController == null)
         {
-            block.AddComponent<BlockSpeedController>().fallSpeed = 5f; // ここで速度を設定
+            speedController = block.AddComponent<BlockSpeedController>();
         }
-    }
 
+        // スピードを設定
+        speedController.SetFallSpeed(initialFallSpeed + (score * 0.1f));  // スコアに応じて速度を上昇
+    }
 
     public void BlockClicked()
     {
-        score += 10; // ブロックをクリックしたらスコアを増加
+        score += 10;
         UpdateScoreText();
+
+        // スコアが上がるごとに生成速度を上昇
+        spawnInterval = Mathf.Max(0.5f, spawnInterval - (score * 0.01f));
     }
 
     void UpdateScoreText()
@@ -76,7 +92,6 @@ public class BlockGameController : MonoBehaviour
 
     void GameOver()
     {
-        // ゲームオーバーの処理をここに追加する（例: スコアを表示したり、リザルト画面に遷移したり）
         Debug.Log("Game Over");
     }
 }
