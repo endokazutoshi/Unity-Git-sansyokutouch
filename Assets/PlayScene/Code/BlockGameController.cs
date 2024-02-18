@@ -1,12 +1,14 @@
 // BlockGameController.cs
 
+// BlockGameController.cs
+
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;  // UnityEngine.UI.Text を使用するために必要なusingディレクティブを追加
 
 public class BlockGameController : MonoBehaviour
 {
     public GameObject blockPrefab;
-    public Text scoreText;
+    public UnityEngine.UI.Text scoreText;  // ここもUnityEngine.UI.Textを使用するように修正
     public float gameDuration = 60f;
     public float initialFallSpeed = 100f;
     private float spawnInterval = 1f;  // 生成頻度
@@ -15,7 +17,10 @@ public class BlockGameController : MonoBehaviour
     private float timer;
     private int score;
 
-    void Start()
+
+
+
+void Start()
     {
         timer = gameDuration;
         score = 0;
