@@ -24,7 +24,6 @@ public class BlockSpeedController : MonoBehaviour
             gameObject.AddComponent<BoxCollider2D>();
         }
 
-        // ブロックの速度を設定
         rb.velocity = new Vector2(0f, -fallSpeed);
     }
 
@@ -34,8 +33,19 @@ public class BlockSpeedController : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            // ブロックの速度を設定
             rb.velocity = new Vector2(0f, -fallSpeed);
+        }
+    }
+
+    void Update()
+    {
+        if (Time.timeSinceLevelLoad < 5f)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }
