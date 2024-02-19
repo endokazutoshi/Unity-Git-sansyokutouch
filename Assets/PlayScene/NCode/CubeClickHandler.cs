@@ -1,3 +1,7 @@
+//CubeClickHandler.cs
+//ブロックがクリックされたら消えるようにするためのスクリプト
+//最初の5秒はクリックできないように変更した(一番最初のブロックが流れたら押せるように変更)
+
 using UnityEngine;
 using UnityEngine.UI;
 

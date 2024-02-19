@@ -1,3 +1,7 @@
+//GameManager.cs
+
+//ブロックがくりっくされたらscoreという変数に数字が入るようになっている。
+
 using UnityEngine;
 using UnityEngine.UI; // こちらを追加
 

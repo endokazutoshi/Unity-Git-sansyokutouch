@@ -369,7 +369,8 @@ GameObject:
   - component: {fileID: 149352287}
   - component: {fileID: 149352288}
   - component: {fileID: 149352290}
-  - component: {fileID: 149352289}
+  - component: {fileID: 149352291}
+  - component: {fileID: 149352292}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -395,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.9, y: 194.34}
+  m_AnchoredPosition: {x: 95, y: 255.93}
   m_SizeDelta: {x: 100, y: 93.029}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
@@ -550,18 +551,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
---- !u!114 &149352289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149352280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &149352290
 Rigidbody2D:
   serializedVersion: 4
@@ -589,6 +578,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &149352291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 2
+  maxFallSpeed: 5
+--- !u!114 &149352292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +862,7 @@ GameObject:
   - component: {fileID: 519302654}
   - component: {fileID: 519302655}
   - component: {fileID: 519302656}
+  - component: {fileID: 519302657}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1000,7 +1016,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
   m_Name: 
@@ -1016,7 +1032,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519302644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
   m_Name: 
@@ -1038,6 +1054,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 307687157}
+--- !u!114 &519302657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff402f48f79d744aa6d65e72f60865a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 149352280}
+  canvasRect: {fileID: 519302648}
+  spawnInterval: 1.5
+  cubeHeight: 600
+  cubeFallSpeed: 5
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
