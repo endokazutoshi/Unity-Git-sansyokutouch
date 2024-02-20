@@ -589,8 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 2
-  maxFallSpeed: 5
+  fallSpeed: 100
+  maxFallSpeed: 10
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 956794522}
+  relatedCube: {fileID: 0}
 --- !u!1 &1170136455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 111673559}
+  relatedCube: {fileID: 0}
 --- !u!1 &1300278097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 1929931813}
+  relatedCube: {fileID: 0}
 --- !u!1 &1929931813
 GameObject:
   m_ObjectHideFlags: 0

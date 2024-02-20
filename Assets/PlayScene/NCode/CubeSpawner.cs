@@ -55,3 +55,4 @@ public class CubeSpawner : MonoBehaviour
         dropper.fallSpeed = cubeFallSpeed; // ‚±‚±‚Å—‰º‘¬“x‚ğİ’è
     }
 }
+

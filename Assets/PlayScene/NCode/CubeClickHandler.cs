@@ -23,7 +23,7 @@ public class CubeClickHandler : MonoBehaviour
         cubeButton.interactable = false;
 
         // 5秒後にクリックを有効にする
-        Invoke("EnableClick", 5f);
+        Invoke("EnableClick", 0f);
     }
 
     void EnableClick()
