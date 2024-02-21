@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 149352288}
   - component: {fileID: 149352290}
   - component: {fileID: 149352291}
+  - component: {fileID: 149352292}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -591,6 +592,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 100
   maxFallSpeed: 10
+--- !u!114 &149352292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 2
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
