@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 111673565}
   - component: {fileID: 111673568}
   - component: {fileID: 111673567}
+  - component: {fileID: 111673570}
   - component: {fileID: 111673569}
   m_Layer: 5
   m_Name: BlueCube
@@ -165,7 +166,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -40, y: 252.61}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111673561
 MonoBehaviour:
@@ -351,9 +352,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 111673559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09d7e0eecdeb1c49998f84f7a97d724, type: 3}
+  m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallSpeed: 100
+  maxFallSpeed: 10
+--- !u!114 &111673570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111673559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 2
 --- !u!1 &149352280
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +387,7 @@ GameObject:
   - component: {fileID: 149352290}
   - component: {fileID: 149352291}
   - component: {fileID: 149352292}
+  - component: {fileID: 149352293}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -396,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: 255.93}
-  m_SizeDelta: {x: 100, y: 93.029}
+  m_AnchoredPosition: {x: 95, y: 255.71}
+  m_SizeDelta: {x: 70, y: 63.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
 MonoBehaviour:
@@ -605,6 +622,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 2
+--- !u!114 &149352293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149352280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52336b948d4deca44922f0a7668c671d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 200
+  maxFallSpeed: 10
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,8 +672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 395.5, y: 153.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 340, y: 129}
+  m_SizeDelta: {x: 193.9258, y: 48.5049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307687156
 MonoBehaviour:
@@ -680,10 +711,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -739,7 +770,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000024319, y: 0.00010681}
-  m_SizeDelta: {x: 100, y: 102.35}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510874304
 MonoBehaviour:
@@ -865,6 +896,9 @@ GameObject:
   - component: {fileID: 519302655}
   - component: {fileID: 519302656}
   - component: {fileID: 519302657}
+  - component: {fileID: 519302660}
+  - component: {fileID: 519302659}
+  - component: {fileID: 519302658}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1070,9 +1104,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 149352280}
   canvasRect: {fileID: 519302648}
-  spawnInterval: 1.5
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
   cubeHeight: 600
-  cubeFallSpeed: 5
+  initialCubeFallSpeed: 5
+  maxCubeFallSpeed: 15
+--- !u!114 &519302658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff402f48f79d744aa6d65e72f60865a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 956794522}
+  canvasRect: {fileID: 519302648}
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
+  cubeHeight: 600
+  initialCubeFallSpeed: 5
+  maxCubeFallSpeed: 15
+--- !u!114 &519302659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff402f48f79d744aa6d65e72f60865a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 1929931813}
+  canvasRect: {fileID: 519302648}
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
+  cubeHeight: 600
+  initialCubeFallSpeed: 5
+  maxCubeFallSpeed: 15
+--- !u!114 &519302660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519302644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff402f48f79d744aa6d65e72f60865a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 111673559}
+  canvasRect: {fileID: 519302648}
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
+  cubeHeight: 600
+  initialCubeFallSpeed: 5
+  maxCubeFallSpeed: 15
 --- !u!1 &766052668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1262,8 @@ GameObject:
   - component: {fileID: 956794528}
   - component: {fileID: 956794530}
   - component: {fileID: 956794529}
+  - component: {fileID: 956794532}
+  - component: {fileID: 956794531}
   m_Layer: 5
   m_Name: NonameCube
   m_TagString: Untagged
@@ -1194,8 +1289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.1, y: 258}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -191.29738, y: 263.4812}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956794524
 MonoBehaviour:
@@ -1392,6 +1487,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &956794531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956794522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 100
+  maxFallSpeed: 10
+--- !u!114 &956794532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956794522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 2
 --- !u!1 &1110765751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1552,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110765753
 MonoBehaviour:
@@ -1538,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 0}
+  relatedCube: {fileID: 956794522}
 --- !u!1 &1170136455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,7 +1699,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170136457
 MonoBehaviour:
@@ -1685,7 +1807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 0}
+  relatedCube: {fileID: 111673559}
 --- !u!1 &1300278097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1914,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00003624, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336985686
 MonoBehaviour:
@@ -1900,7 +2022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4dd8d6008c28428d84547b45cdde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relatedCube: {fileID: 0}
+  relatedCube: {fileID: 1929931813}
 --- !u!1 &1929931813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,11 +2034,12 @@ GameObject:
   - component: {fileID: 1929931814}
   - component: {fileID: 1929931816}
   - component: {fileID: 1929931815}
-  - component: {fileID: 1929931817}
   - component: {fileID: 1929931818}
   - component: {fileID: 1929931819}
   - component: {fileID: 1929931821}
   - component: {fileID: 1929931820}
+  - component: {fileID: 1929931823}
+  - component: {fileID: 1929931822}
   m_Layer: 5
   m_Name: YellowCube
   m_TagString: Untagged
@@ -1943,7 +2066,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 255, y: 252.60999}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929931815
 MonoBehaviour:
@@ -1983,26 +2106,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929931813}
   m_CullTransparentMesh: 1
---- !u!114 &1929931817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929931813}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19fdf5cc37cdcea428a7122ff780d92b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstSpeed: 10
-  nextSpeed: 100
-  maxCubeSpeed: 200
-  spawnInterval: 5
-  totalTimeLimit: 5
-  targetColor: {r: 0, g: 0, b: 0, a: 0}
-  scoreValue: 10
-  scoreText: {fileID: 307687157}
 --- !u!212 &1929931818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2140,6 +2243,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1929931822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929931813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 2
+--- !u!114 &1929931823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929931813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 100
+  maxFallSpeed: 10
 --- !u!1 &2050739653
 GameObject:
   m_ObjectHideFlags: 0
