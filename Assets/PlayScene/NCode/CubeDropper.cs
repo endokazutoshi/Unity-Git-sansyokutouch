@@ -1,28 +1,51 @@
 // CubeDropper.cs
 using UnityEngine;
 
+public enum OperationType
+{
+    None,
+    Addition,
+    Subtraction,
+    Multiplication,
+    Division
+}
+
 public class CubeDropper : MonoBehaviour
 {
-    private float initialFallSpeed = 30f;  // 初期スピードを30に変更
-    private float maxBaseFallSpeed = 10f;  // 基本の最大落下速度
+    private float fallSpeed = 80f;
+    private float maxFallSpeed = 150f;
     private float currentFallSpeed;
     private bool canIncreaseSpeed = false;
 
-    void Start()
+    private OperationType operationType = OperationType.None;
+
+    public OperationType OperationType // プロパティを追加
     {
-        currentFallSpeed = initialFallSpeed;
-        Invoke("EnableSpeedIncrease", 5f);
+        get { return operationType; }
+        set { operationType = value; }
     }
 
-    void EnableSpeedIncrease()
-    {
-        canIncreaseSpeed = true;
-    }
+    private GameManager gameManager;
 
     public float FallSpeed
     {
         get { return currentFallSpeed; }
         set { currentFallSpeed = value; }
+    }
+
+    void Start()
+    {
+        currentFallSpeed = fallSpeed;
+        Invoke("EnableSpeedIncrease", 5f);
+
+        gameManager = FindObjectOfType<GameManager>();
+
+        SetRandomOperationType();
+    }
+
+    void EnableSpeedIncrease()
+    {
+        canIncreaseSpeed = true;
     }
 
     void Update()
@@ -31,25 +54,27 @@ public class CubeDropper : MonoBehaviour
 
         if (canIncreaseSpeed)
         {
-            // 基本の最大落下速度にスコアの値を加算
-            currentFallSpeed = Mathf.Min(currentFallSpeed + Time.deltaTime, maxBaseFallSpeed + GetScoreMultiplier());
+            IncreaseSpeedByScore();
+            currentFallSpeed = Mathf.Min(currentFallSpeed + Time.deltaTime, maxFallSpeed);
         }
     }
 
-    float GetScoreMultiplier()
+    void IncreaseSpeedByScore()
     {
-        GameManager gameManager = FindObjectOfType<GameManager>();
         if (gameManager != null)
         {
             int score = gameManager.GetScore();
-            Debug.Log("Current Score: " + score);
-
-            // スコアに基づいて速度を返す
-            return score;
+            float speedIncreaseFactor = 0.1f;
+            currentFallSpeed += score * speedIncreaseFactor;
         }
-        else
+    }
+
+    void SetRandomOperationType()
+    {
+        if (operationType == OperationType.None)
         {
-            return 0;
+            OperationType[] operationTypes = (OperationType[])System.Enum.GetValues(typeof(OperationType));
+            operationType = operationTypes[Random.Range(1, operationTypes.Length)];
         }
     }
 }

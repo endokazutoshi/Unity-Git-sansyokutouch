@@ -1,34 +1,28 @@
-//CubeClickHandler.cs
-//ブロックがクリックされたら消えるようにするためのスクリプト
-//最初の5秒はクリックできないように変更した(一番最初のブロックが流れたら押せるように変更)
-
+// CubeClickHandler.cs
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CubeClickHandler : MonoBehaviour
 {
     private Button cubeButton;
+    private CubeDropper dropper; // CubeDropper クラスへの参照を保持する変数を追加
 
-    // 関連するCube
     public GameObject relatedCube;
 
-    // クリックが有効かどうかを管理する変数
     private bool clickEnabled = false;
 
     void Start()
     {
         cubeButton = GetComponent<Button>();
-
-        // 最初はクリックを無効にする
         cubeButton.interactable = false;
 
-        // 5秒後にクリックを有効にする
+        dropper = GetComponent<CubeDropper>(); // CubeDropper コンポーネントを取得
+
         Invoke("EnableClick", 0f);
     }
 
     void EnableClick()
     {
-        // クリックを有効にする
         cubeButton.interactable = true;
     }
 
@@ -36,29 +30,24 @@ public class CubeClickHandler : MonoBehaviour
     {
         if (clickEnabled)
         {
-            // クリックされたときの処理をここに追加
             if (Input.GetMouseButtonDown(0))
             {
                 OnClick();
             }
         }
     }
-    // クリックされたときの処理を公開
+
     public void OnClick()
     {
-        // GameManagerスクリプトを探す
         GameManager gameManager = FindObjectOfType<GameManager>();
 
         if (gameManager != null)
         {
-            // GameManagerのOnClickメソッドを呼び出す
+            PerformOperation(gameManager); // 新しく追加したメソッドを呼び出す
             gameManager.OnClick();
         }
 
-        // Cubeを完全に破棄する（オブジェクトを削除する）
         Destroy(gameObject);
-
-        // 関連するCubeも破棄する
         if (relatedCube != null)
         {
             Destroy(relatedCube);
@@ -67,4 +56,28 @@ public class CubeClickHandler : MonoBehaviour
         UnityEngine.Debug.Log("Cube Clicked!");
     }
 
+    // GameManager から得たスコアに基づいて操作を行うメソッド
+    public void PerformOperation(GameManager gameManager)
+    {
+        if (dropper != null)
+        {
+            switch (dropper.OperationType)
+            {
+                case OperationType.Addition:
+                    gameManager.AddScore(10);
+                    break;
+                case OperationType.Subtraction:
+                    gameManager.SubtractScore(10);
+                    break;
+                case OperationType.Multiplication:
+                    gameManager.MultiplyScore(2);
+                    break;
+                case OperationType.Division:
+                    gameManager.DivideScore(2);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }

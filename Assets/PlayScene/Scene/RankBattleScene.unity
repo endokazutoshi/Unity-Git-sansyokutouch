@@ -165,7 +165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -64, y: -244}
+  m_AnchoredPosition: {x: -61, y: -302.22}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111673561
@@ -409,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101, y: -229}
+  m_AnchoredPosition: {x: 104, y: -348.89}
   m_SizeDelta: {x: 70, y: 63.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
@@ -1034,6 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 307687157}
+  playTime: 50
 --- !u!114 &519302657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,8 +1049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 149352280}
   canvasRect: {fileID: 519302648}
-  minSpawnInterval: 2
-  maxSpawnInterval: 4
+  minSpawnInterval: 1
+  maxSpawnInterval: 2
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
@@ -1090,8 +1091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 1929931813}
   canvasRect: {fileID: 519302648}
-  minSpawnInterval: 2
-  maxSpawnInterval: 4
+  minSpawnInterval: 1
+  maxSpawnInterval: 2
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
@@ -1111,8 +1112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 111673559}
   canvasRect: {fileID: 519302648}
-  minSpawnInterval: 2
-  maxSpawnInterval: 4
+  minSpawnInterval: 1
+  maxSpawnInterval: 2
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
@@ -1161,7 +1162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -227, y: -244}
+  m_AnchoredPosition: {x: -227, y: -302.22}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956794524
@@ -1782,7 +1783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00003624, y: 0}
+  m_AnchoredPosition: {x: -0.000019171, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336985686
@@ -1934,7 +1935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 234, y: -232.27}
+  m_AnchoredPosition: {x: 228, y: -352}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929931815
