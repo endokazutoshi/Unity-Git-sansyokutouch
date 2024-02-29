@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BlockFallScript : MonoBehaviour
 {
-    public float fallSpeed = 2.0f;
+    private float initialFallSpeed = 2.0f;  // 初期の落下速度
     private bool isFalling = true;
 
     private void Start()
@@ -18,7 +18,7 @@ public class BlockFallScript : MonoBehaviour
         while (isFalling)
         {
             // ブロックを下に移動させる
-            transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+            transform.Translate(Vector3.down * GetFallSpeed() * Time.deltaTime);
 
             // 0.1秒待機
             yield return new WaitForSeconds(0.1f);
@@ -29,5 +29,21 @@ public class BlockFallScript : MonoBehaviour
     {
         isFalling = false;
     }
-}
 
+    private float GetFallSpeed()
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            int score = gameManager.GetScore();
+            Debug.Log("Current Score: " + score);
+
+            // スコアに基づいて速度を返す
+            return initialFallSpeed + score;
+        }
+        else
+        {
+            return initialFallSpeed;
+        }
+    }
+}

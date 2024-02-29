@@ -1,14 +1,10 @@
-//GameManager.cs
-
-//ブロックがくりっくされたらscoreという変数に数字が入るようになっている。
-
+// GameManager.cs
 using UnityEngine;
-using UnityEngine.UI; // こちらを追加
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public UnityEngine.UI.Text scoreText; // TextオブジェクトをInspectorから関連付け
-
+    public UnityEngine.UI.Text scoreText;
     private int score = 0;
 
     void Start()
@@ -18,19 +14,18 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        // Textに現在の得点を表示
         scoreText.text = "Score: " + score.ToString();
     }
 
-    // クリックされたときの処理
     public void OnClick()
     {
-        // 得点を増やす処理（例: クリックごとに10点追加）
         score += 10;
-
-        // 得点を表示する
         UpdateScoreText();
+    }
 
-        // 他の処理を追加...
+    // 新しく追加したメソッド
+    public int GetScore()
+    {
+        return score;
     }
 }

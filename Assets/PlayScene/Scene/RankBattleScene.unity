@@ -165,7 +165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 252.61}
+  m_AnchoredPosition: {x: -64, y: -244}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111673561
@@ -355,8 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 100
-  maxFallSpeed: 10
 --- !u!114 &111673570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 2
 --- !u!1 &149352280
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +384,6 @@ GameObject:
   - component: {fileID: 149352290}
   - component: {fileID: 149352291}
   - component: {fileID: 149352292}
-  - component: {fileID: 149352293}
   m_Layer: 5
   m_Name: RedCube
   m_TagString: Untagged
@@ -413,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4818653}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: 255.71}
+  m_AnchoredPosition: {x: 101, y: -229}
   m_SizeDelta: {x: 70, y: 63.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149352282
@@ -607,8 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 100
-  maxFallSpeed: 10
 --- !u!114 &149352292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,21 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 2
---- !u!114 &149352293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149352280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52336b948d4deca44922f0a7668c671d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallSpeed: 200
-  maxFallSpeed: 10
 --- !u!1 &307687154
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +741,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 766052669}
+  m_Children: []
   m_Father: {fileID: 149352281}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -892,8 +870,6 @@ GameObject:
   - component: {fileID: 519302646}
   - component: {fileID: 519302645}
   - component: {fileID: 519302649}
-  - component: {fileID: 519302654}
-  - component: {fileID: 519302655}
   - component: {fileID: 519302656}
   - component: {fileID: 519302657}
   - component: {fileID: 519302660}
@@ -1045,38 +1021,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &519302654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519302644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 149352280}
-  scoreText: {fileID: 307687157}
-  gameDuration: 60
-  initialFallSpeed: 5
---- !u!114 &519302655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519302644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79214f12cdbddd4091bda93d3c29635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 111673559}
-  scoreText: {fileID: 307687157}
-  gameDuration: 60
-  initialFallSpeed: 5
 --- !u!114 &519302656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,6 +1053,8 @@ MonoBehaviour:
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
+  minX: -300
+  maxX: 200
 --- !u!114 &519302658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,6 +1074,8 @@ MonoBehaviour:
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
+  minX: -300
+  maxX: 200
 --- !u!114 &519302659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1095,8 @@ MonoBehaviour:
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
+  minX: -300
+  maxX: 200
 --- !u!114 &519302660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,86 +1116,8 @@ MonoBehaviour:
   cubeHeight: 600
   initialCubeFallSpeed: 5
   maxCubeFallSpeed: 15
---- !u!1 &766052668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 766052669}
-  - component: {fileID: 766052671}
-  - component: {fileID: 766052670}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &766052669
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766052668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 510874302}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.00026894}
-  m_SizeDelta: {x: 100, y: 102.35}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &766052670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766052668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
---- !u!222 &766052671
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766052668}
-  m_CullTransparentMesh: 1
+  minX: -300
+  maxX: 200
 --- !u!1 &956794522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -191.29738, y: 263.4812}
+  m_AnchoredPosition: {x: -227, y: -244}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956794524
@@ -1499,8 +1371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 100
-  maxFallSpeed: 10
 --- !u!114 &956794532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 2
 --- !u!1 &1110765751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +1934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: 252.60999}
+  m_AnchoredPosition: {x: 234, y: -232.27}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929931815
@@ -2255,7 +2124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f5a74eac851f42b5be1284cc469c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 2
 --- !u!114 &1929931823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2268,8 +2136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ce85f4c4d8b747b5ae5399b235b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 100
-  maxFallSpeed: 10
 --- !u!1 &2050739653
 GameObject:
   m_ObjectHideFlags: 0

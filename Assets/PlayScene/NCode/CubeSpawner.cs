@@ -10,6 +10,8 @@ public class CubeSpawner : MonoBehaviour
     public float cubeHeight = 0f; // Cubeの高さ
     public float initialCubeFallSpeed = 5f; // 初期のCubeの落下速度
     public float maxCubeFallSpeed = 15f; // 最大のCubeの落下速度
+    public float minX = -300.0f; // 左の制限
+    public float maxX = 200.0f; // 右の制限
 
     private float timer = 0f;
     private float spawnInterval = 0f;
@@ -46,52 +48,30 @@ public class CubeSpawner : MonoBehaviour
 
     void SpawnCube()
     {
-        // Canvasの範囲を考慮してランダムな位置を計算
-        Vector2 randomPosition = GetRandomPosition();
+        // ランダムな横位置を計算（左右の範囲を制限）
+        float randomX = Random.Range(minX, maxX);
 
         // Cubeの生成
-        GameObject newCube = Instantiate(cubePrefab, randomPosition, Quaternion.identity);
+        GameObject newCube = Instantiate(cubePrefab, canvasRect);
+
+        // RectTransformの位置を設定
+        RectTransform cubeRect = newCube.GetComponent<RectTransform>();
+        cubeRect.anchoredPosition = new Vector2(randomX, cubeHeight);
 
         // 他の処理を追加...
 
-        // 生成されたCubeがCanvas内に収まるようにする
-        RectTransform cubeRect = newCube.GetComponent<RectTransform>();
-        cubeRect.SetParent(canvasRect);
-        cubeRect.anchoredPosition = randomPosition;
-
-        // Cubeの高さを設定
-        Vector3 cubePosition = newCube.transform.position;
-        cubePosition.y = cubeHeight;
-        newCube.transform.position = cubePosition;
-
         // Cubeに落下スクリプトをアタッチ
         CubeDropper dropper = newCube.AddComponent<CubeDropper>();
-        dropper.fallSpeed = currentCubeFallSpeed; // 落下速度を設定
+        dropper.FallSpeed = currentCubeFallSpeed; // 落下速度を設定
     }
 
-    Vector2 GetRandomPosition()
-    {
-        // ランダムな位置を計算
-        Vector2 randomPosition = new Vector2(Random.Range(-canvasRect.rect.width / 2f, canvasRect.rect.width / 2f),
-                                             Random.Range(-canvasRect.rect.height / 2f, canvasRect.rect.height / 2f));
-
-        // 生成されたCubeが他のCubeと重なっていないかチェック
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPosition, 1f); // 1fは適切な半半径
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Cube"))
-            {
-                // 他のCubeと重なっている場合、再帰的に位置を計算
-                return GetRandomPosition();
-            }
-        }
-
-        return randomPosition;
-    }
-
-    // スコアが上がったときに呼ばれるメソッド
     public void IncreaseScore(int amount)
     {
         score += amount;
+    }
+    // スコアを取得するメソッドを追加
+    public int GetScore()
+    {
+        return score;
     }
 }

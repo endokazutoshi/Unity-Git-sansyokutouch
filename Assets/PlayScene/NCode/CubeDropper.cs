@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class CubeDropper : MonoBehaviour
 {
-    public float fallSpeed = 2f; // Cubeの最初の落下速度
-    public float maxFallSpeed = 5f; // Cubeの最大落下速度
-
+    private float initialFallSpeed = 30f;  // 初期スピードを30に変更
+    private float maxBaseFallSpeed = 10f;  // 基本の最大落下速度
     private float currentFallSpeed;
     private bool canIncreaseSpeed = false;
 
     void Start()
     {
-        currentFallSpeed = fallSpeed;
-        Invoke("EnableSpeedIncrease", 5f); // 5秒後に速度の増加を許可
+        currentFallSpeed = initialFallSpeed;
+        Invoke("EnableSpeedIncrease", 5f);
     }
 
     void EnableSpeedIncrease()
@@ -20,15 +19,37 @@ public class CubeDropper : MonoBehaviour
         canIncreaseSpeed = true;
     }
 
+    public float FallSpeed
+    {
+        get { return currentFallSpeed; }
+        set { currentFallSpeed = value; }
+    }
+
     void Update()
     {
-        // Cubeを下に移動
         transform.Translate(Vector3.down * currentFallSpeed * Time.deltaTime);
 
-        // 落下速度を徐々に増加させる（最大速度に制限）
         if (canIncreaseSpeed)
         {
-            currentFallSpeed = Mathf.Min(currentFallSpeed + Time.deltaTime, maxFallSpeed);
+            // 基本の最大落下速度にスコアの値を加算
+            currentFallSpeed = Mathf.Min(currentFallSpeed + Time.deltaTime, maxBaseFallSpeed + GetScoreMultiplier());
+        }
+    }
+
+    float GetScoreMultiplier()
+    {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            int score = gameManager.GetScore();
+            Debug.Log("Current Score: " + score);
+
+            // スコアに基づいて速度を返す
+            return score;
+        }
+        else
+        {
+            return 0;
         }
     }
 }
