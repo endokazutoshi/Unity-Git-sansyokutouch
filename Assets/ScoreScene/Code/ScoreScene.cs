@@ -1,23 +1,27 @@
-// ScoreScene.cs
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static System.Net.Mime.MediaTypeNames;
 
 public class ScoreScene : MonoBehaviour
 {
-    public Text scoreText;
+    public UnityEngine.UI.Text scoreText;
     public Button backButton; // ボタンをInspectorから関連付け
 
-    void Start()
-    { 
+    public void Start()
+    {
         DisplayScore();
 
-        // ボタンが押された時の処理を追加
-        backButton.onClick.AddListener(OnBackButtonClicked);
+        // ボタンがnullでない場合にイベントリスナーを追加
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(OnBackButtonClicked);
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("backButtonがnullです！"); // UnityEngine.Debugを明示的に指定
+        }
     }
-
-       
-    
 
     void DisplayScore()
     {
@@ -27,6 +31,7 @@ public class ScoreScene : MonoBehaviour
         // UIなどでスコアを表示
         scoreText.text = "Score: " + score.ToString();
     }
+
     public void OnBackButtonClicked()
     {
         // ボタンが押された時にStageSelectSceneに遷移
